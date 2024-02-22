@@ -1,6 +1,4 @@
 
-// 9th Jan Lecture 55 DOne ✅
-
 
 const express = require('express');
 const Product = require('../models/Product');
