@@ -1,7 +1,4 @@
 
-// 9th Jan Lecture 55 Time - 1:39 minutes
-
-
 const express = require('express');
 const User = require('../models/User');
 const passport = require('passport');
