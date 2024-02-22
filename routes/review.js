@@ -1,6 +1,4 @@
 
-// 9th Jan Lecture 55 Time - 0:23 minutes
-
 
 const express = require('express');
 const Review = require('../models/Review');
