@@ -1,7 +1,4 @@
 
-// 15th Jan Lecture 56 Time 1:34 Hours
-
-
 const Product = require('./models/Product');
 const {productSchema , reviewSchema} = require('./schema');
 
