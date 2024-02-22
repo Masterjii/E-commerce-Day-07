@@ -1,0 +1,40 @@
+<%-include('./partials/header')%>
+<%-include('./partials/navbar')%>
+
+        <main>
+
+            <%-include('./flash.ejs')%>
+
+            <div class="container text-center row">
+                <% for(let item of products){ %>
+                    <div class="index card col-md-4">
+                        <h2> <%= item.name %> </h2>
+                        <img src="<%=item.img%>" alt="">
+                        <h2 class="price">Rs <%=item.price%> </h2>
+                        <p> <%=item.desc%> </p>
+                       <div>
+                           <span class="btn like-btn" product-id="<%=item._id%>">
+                            <% if(currentUser && currentUser.wishlist.includes(item._id)){ %>
+                                <i class="fa-regular fa-heart fa-lg"></i>
+                            <% } else { %>
+                                <i class="fa-solid fa-heart fa-bounce fa-lg"></i>
+                            <% } %>
+                           </span>
+                        <a href="/products/<%=item._id%>" class="btn btn-primary"> View Product </a>
+                        <% if(currentUser && currentUser.role === "seller"){ %>
+                            <a href="/products/<%=item._id%>/edit" class="btn btn-success"> Edit This </a>
+                            <form class="d-inline" action="/products/<%=item._id%>?_method=DELETE" method="POST">
+                                <a type="button" class="btn btn-dark" >Delete</a>
+                            </form>
+                       </div>
+                    </div>  
+                    <% } %>
+                <% } %>
+
+            </div>
+
+        </main>
+       
+        <script src="/js/common.js"></script>
+
+        <%-include('./partials/footer.ejs')%>
